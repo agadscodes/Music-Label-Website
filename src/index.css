@@ -5,7 +5,7 @@
 :root {
   --color-bg: #edeaea;
   --color-surface: #111;
-  --color-text: rgb(17, 17, 17);
+  --color-text: rgb(5, 5, 5);
   --color-text-muted: rgba(162, 160, 160, 0.6);
   --color-line: rgba(255, 255, 255, 0.15);
 }
@@ -20,6 +20,7 @@ body {
   padding: 0;
   background: var(--color-bg);
   color: var(--color-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar {
@@ -88,11 +89,12 @@ body {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
+  text-decoration: none;
   text-transform: uppercase;
   padding: 10px 20px;
   border: 1px solid var(--color-text);
   background: transparent;
-  color: var(--color-text);
+  color: black;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -130,14 +132,40 @@ body {
   border-right: none;
 }
 
+.section-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 40px 32px 28px;
+}
+
+/* Horizontal lines on both sides */
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); /* Use var(--color-line) if on dark theme */
+}
+
+.section-divider__title {
+  padding: 0 24px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45); /* Muted gray text matching the image */
+  white-space: nowrap;
+}
 /* ==========================================================================
    Roster grid (image cards, name overlay bottom-left)
    ========================================================================== */
 
 .roster-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 30px;
 }
 
 @media (max-width: 900px) {
@@ -173,11 +201,11 @@ body {
   bottom: 0;
   right: 0;
   padding: 14px 16px;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: white;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.75) 0%,

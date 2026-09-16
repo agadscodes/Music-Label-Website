@@ -7,7 +7,7 @@ export default function Hero(){
     return (
         <div className="hero">
             <img src={Logo} alt="" className="hero__logo" />
-            <button className="hero__cta">Explore Roster <FontAwesomeIcon icon={faArrowDown} /></button>
+            <a href="#roster" className="hero__cta">Explore Roster <FontAwesomeIcon icon={faArrowDown} /></a>
         </div>
     )
 }

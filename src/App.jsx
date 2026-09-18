@@ -5,8 +5,11 @@ import Artists from "./Artists";
 import LogoLoop from "./components/Animations/LogoLoop/LogoLoop";
 import Divider from "./Divider";
 import Roster from "./Roster";
+import Modal from "./Modal";
+import Footer from "./Footer";
 
 function App() {
+  const [selectedArtist, setSelectedArtist] = useState(null)
   const artistItems = Artists.map((artist) => ({
     node: (
       <span key={artist.id} className="roster-name">
@@ -14,6 +17,9 @@ function App() {
       </span>
     ),
   }));
+  function onClose(){
+    setSelectedArtist(null)
+  }
   return (
     <div>
       <Navbar />
@@ -27,7 +33,9 @@ function App() {
         />
       </div>
       <Divider />
-      <Roster Artists={Artists} />
+      <Roster Artists={Artists} setSelectedArtist={setSelectedArtist}/>
+<Modal artist={selectedArtist} onClose={onClose}/>
+<Footer/>
     </div>
   );
 }

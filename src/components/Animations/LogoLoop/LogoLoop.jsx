@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 
 export default function LogoLoop({
   logos = [],
-  speed = 50,
+  speed = 40,
   direction = "left",
   pauseOnHover = true,
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const controls = useAnimationControls();
 
-  // Duplicate the list enough times so the marquee is continuous
-  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
+  // Duplicate just twice for seamless loop
+  const duplicatedLogos = [...logos, ...logos];
 
   useEffect(() => {
     if (pauseOnHover && isHovered) {
